@@ -1,0 +1,21 @@
+function drawWeps(array)
+  local x = 10
+  local y = 200
+  local columns = 10
+  local boxWidth = (bWidth-10)/columns
+  local maxRows = 3
+
+  for key, val in pairs(array) do
+    if x >= (bWidth-10) then
+      x = 10
+      y = y + 120
+    end
+
+    draw.RoundedBox(0,x,y,boxWidth - 10,100,Color(63,79,127,200))
+    draw.SimpleText(val[1],"Default", x + boxWidth/2 - 10, y + 50, Color(255,255,255),1,1)
+    val[2] = x
+    val[3] = y
+
+    x = x + boxWidth
+  end
+end
